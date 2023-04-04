@@ -1,3 +1,8 @@
+import { fruit } from "./module_Fruit.js";
+import {specificFont,miss,go,gameOverImg,score,gameLife0,gameLife1,gameLife2,gameLife3,bombImg,settingImg,bg,title,iconClassic,iconSettings,iconZen,frozenOverlay,iconQuit,iconRetry,showScore,critical5,critical10,freezeIcon,greenParticle,lightyellowParticle,darkyellowParticle,redParticle,whiteParticle,starFruitParticle,starParticle,iceParticle,bananaImg,bananaBottom,bananaTop,bananaSplash,appleImg,appleTop,appleBottom,appleSplash,peachImg,peachTop,peachBottom,peachSplash,melonImg,melonTop,melonBottom,melonSplash,pineAppleImg,pineAppleTop,pineappleBottom,pineAppleSplash,coconutImg,coconutTop,coconutBottom,coconutSplash,strawberryImg,strawberryTop,strawberryBottom,strawberrySplash,freezeBananaImg,freezeBananaTop,freezebananaBottom,starFruitImg,starFruitTop,starFruitBottom,dragonFruitImg,dragonFruitTop,dragonFruitBottom,dragonFruitSplash} from './main.js'
+import { renderBlade } from "./module_blade.js";
+import { renderSlice } from "./module_fruitslice.js";
+
 export class game {
     constructor(newGame){
         this.apple = new fruit(appleImg,'apple', appleTop, appleBottom, appleSplash,'right',300,'minSpin', greenParticle,25,120,40,1500,120,120);
