@@ -199,5 +199,46 @@ function draw(){
     imageMode(CORNER)
     background(bg);
     image(title, 0, 0, width + 200, 600);
+    //Generates Menu for 'gamestart'
+    fruitNinja.generateMenu();
+    if (mouseIsPressed === true) {
+      renderBlade();
+    //Checks if settings was swiped by the user
+    if(mouseY > 415 & mouseY < 490 & mouseX > 715 & mouseX < 785){
+      fruitNinja.menuFruitsArray[1].fruit.sliced = true;
+      if(playSound === true){
+        sliceSound.play();
+      }
+      setTimeout(() => {
+    isSettings = true;
+    fruitNinja.menuFruitsArray[1].fruit.sliced = false;
+      }, 500)
+    }
+    //Checks if Classic Mode was swiped by the user
+    if(mouseY > 415 & mouseY < 490 & mouseX > 455 & mouseX < 515){
+      fruitNinja.menuFruitsArray[0].fruit.sliced = true;
+      if(playSound === true){
+        sliceSound.play();
+      }
+      setTimeout(() => {
+        fruitNinja.gameType = 'game'
+        fruitNinja.gameMode = "Classic"
+        fruitNinja.menuFruitsArray[0].fruit.sliced = false;
+      }, 1000)
+    }
+    //Checks if Zen Mode was swiped by the user
+    
+    if(mouseY > 415 & mouseY < 485 & mouseX > 165 & mouseX < 235){
+      fruitNinja.menuFruitsArray[2].fruit.sliced = true;
+      if(playSound === true){
+        sliceSound.play();
+      }
+      setTimeout(() => {
+        fruitNinja.gameType = 'game'
+        fruitNinja.gameMode = "Zen"
+        fruitNinja.menuFruitsArray[2].fruit.sliced = false;
+      }, 1000)
+    }
   }
+}
 }
