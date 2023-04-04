@@ -27,3 +27,12 @@ export function renderSlice(item){
       item.angle = item.angle - item.angleMaxRotate;
     }
 }
+
+export function rotatefruit(item){
+  push();
+  translate(item.randomX, item.startY);
+  rotate(item.angle);
+  imageMode(CENTER);
+  image(item.type, 0, 0, item.width,item.height);
+  pop()
+}
