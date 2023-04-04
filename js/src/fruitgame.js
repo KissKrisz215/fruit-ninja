@@ -218,4 +218,16 @@ export class game {
             this.banana = new fruit(bananaImg, 'banana', bananaTop, bananaBottom,bananaSplash, 'right',300,'maxSpin',lightyellowParticle,25,120,40,1500,90,140);
             this.starfruit = new fruit(starFruitImg, 'starfruit', starFruitTop, starFruitBottom,appleSplash,'right',300,'minSpin',starFruitParticle,25,120,40,1500,120,120);
         }
+        showMissed(){
+            this.missedFruits.forEach((item,index) => {
+                push()
+                tint(255, item[1]);
+                item[1] -= 2;
+                image(miss, item[0], 720, 80, 80);
+                pop()
+                if(item[1]  <= 0){
+                  this.missedFruits.splice(index,1);
+                }
+              },10)
+        }
 }
