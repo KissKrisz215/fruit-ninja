@@ -46,4 +46,10 @@ export class fruit {
     renderSplash(){
         loadSplash(this);
     }
+    renderSlice(){
+        renderSlice(this);
+    }
+    rotate(){
+        rotatefruit(this);
+    }
 }
