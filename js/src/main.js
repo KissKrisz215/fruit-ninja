@@ -185,9 +185,13 @@ function preload(){
   go = loadImage('./assets/img/icons/go.png')
 }
 
-
 function setup() {
   createCanvas(1000, 800);
  angleMode(DEGREES);
+}
 
+export {specificFont,miss,go,gameOverImg,score,gameLife0,gameLife1,gameLife2,gameLife3,bombImg,settingImg,bg,title,iconClassic,iconSettings,iconZen,frozenOverlay,iconQuit,iconRetry,showScore,critical5,critical10,freezeIcon,greenParticle,lightyellowParticle,darkyellowParticle,redParticle,whiteParticle,starFruitParticle,starParticle,iceParticle,bananaImg,bananaBottom,bananaTop,bananaSplash,appleImg,appleTop,appleBottom,appleSplash,peachImg,peachTop,peachBottom,peachSplash,melonImg,melonTop,melonBottom,melonSplash,pineAppleImg,pineAppleTop,pineappleBottom,pineAppleSplash,coconutImg,coconutTop,coconutBottom,coconutSplash,strawberryImg,strawberryTop,strawberryBottom,strawberrySplash,freezeBananaImg,freezeBananaTop,freezebananaBottom,starFruitImg,starFruitTop,starFruitBottom,dragonFruitImg,dragonFruitTop,dragonFruitBottom,dragonFruitSplash}
+
+function draw(){
+  
 }
