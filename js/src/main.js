@@ -1,3 +1,10 @@
+import { loadParticles } from "./module_fruitparticles.js";
+import { Particle } from "./module_fruitparticles.js";
+import { fruit } from "./module_Fruit.js";
+import { renderSlice } from "./module_fruitslice.js";
+import { renderBlade } from "./module_blade.js";
+import { game } from "./fruitgame.js";
+
 window.setup = setup; 
 window.draw = draw;
 window.preload = preload;
@@ -176,4 +183,11 @@ function preload(){
   gameOverImg = loadImage('./assets/img/icons/gameover.png');
   miss = loadImage('./assets/img/icons/score/miss.png')
   go = loadImage('./assets/img/icons/go.png')
+}
+
+
+function setup() {
+  createCanvas(1000, 800);
+ angleMode(DEGREES);
+
 }
