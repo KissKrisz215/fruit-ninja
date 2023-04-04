@@ -140,4 +140,27 @@ export class game {
         let fruits = this.menuFruits[randomNumber]
         item.fruit = fruits;
     }
+    displayScore(){
+        textSize(60)
+        fill(255, 215, 0)
+        text(this.gameScore, 130,65)
+        textSize(40)
+        //Display Best Score
+        text("BEST:",55,130)
+        textFont(specificFont)
+        text(this.bestScore, 160,130);
+        //Displays current Score
+        image(score, 45,15,70,70)
+        if(this.playerHealth === 4){
+            image(gameLife3, 750,15,200,100)
+        }else if(this.playerHealth === 3){
+            image(gameLife2, 750,15,200,100)
+        }else if(this.playerHealth === 2){
+            image(gameLife1, 750,15,200,100)
+        }else if(this.playerHealth <= 1){
+            image(gameLife0, 750,15,200,100)
+            image(gameOverImg, 240, 300, 550, 200)
+            this.gameOver = true;
+        }
+        }
 }
