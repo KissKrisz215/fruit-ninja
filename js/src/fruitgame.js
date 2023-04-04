@@ -98,4 +98,41 @@ export class game {
            }
         })
     }
+    renderGameOver(){
+        let finalScore = this.gameScore.toString();
+        imageMode(CORNER)
+        background(bg);
+        image(showScore, 0, 60, 1000, 600);
+        textSize(230)
+        fill(235, 173, 39)
+        if(finalScore.length <= 1){
+            text(this.gameScore, 435,430) 
+        }else if(finalScore.length === 2){
+            text(this.gameScore, 380,430) 
+        }else if(finalScore.length === 3){
+            text(this.gameScore, 310,430) 
+        }else if(finalScore.length === 4){
+            text(this.gameScore, 250,430) 
+        }else{
+            text(this.gameScore, 180,430) 
+        }
+        this.gameOverFruits.forEach((item) => {       
+            if(item.fruit === undefined){
+                this.generateRandomFruit(item)
+            }else{
+                push()
+                if (mouseIsPressed === true) {
+                    renderBlade();
+                }
+                translate(item.x,item.y);
+                rotate(item.angle);
+                imageMode(CENTER);
+                image(item.game,0,0,item.circleWidth,item.circleHeight);
+                image(item.fruit.type,0,0,item.fruitWidth,item.fruitHeight);
+                // item.fruit.renderSplash();
+                pop()
+                item.angle += 0.9; 
+            }
+        })
+    }
 }
