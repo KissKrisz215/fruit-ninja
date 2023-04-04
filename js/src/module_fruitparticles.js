@@ -38,3 +38,10 @@ export function loadParticles(item){
     setTimeout(() => {
      },item.particleTiming)
 }
+
+export function loadSplash(item){
+  tint(255, item.splashOpacity);
+  item.splashOpacity4 -= 4;
+  image(item.splashImg, item.splashedX, item.splashedY, 150,150);
+  tint(255,255);
+}
