@@ -31,4 +31,57 @@ export class game {
         {game: iconSettings,x: 750, y: 450, circleHeight: 250,circleWidth:250,fruitHeight: 100, fruitWidth: 100,angle: 0},
         {game: iconZen,x: 200, y: 450, circleHeight: 250,circleWidth:250,fruitHeight: 100, fruitWidth: 100,angle: 0}];
     }
+    generateMenu(){
+        this.menuFruitsArray.forEach((item) => {
+            if(item.fruit === undefined){
+                  this.generateRandomFruit(item,this.menuFruitsArray);
+                this.checkDuplicates(item,this.menuFruitsArray)
+            }else if(item.fruit.sliced === false){
+                item.fruit.slicedX = item.x;
+                item.fruit.slicedY = item.y;
+                item.fruit.splashedY = item.y;
+                item.fruit.randomX = item.x
+                item.fruit.splashedX = item.fruit.randomX;
+                item.fruit.endYPos = item.y - 150;
+                item.fruit.startY = item.y;
+                item.fruit.speed = -2.5;
+                push()
+                translate(item.x,item.y);
+                rotate(item.angle);
+                imageMode(CENTER);
+                image(item.game,0,0,item.circleWidth,item.circleHeight);
+                image(item.fruit.type,0,0,item.fruitWidth,item.fruitHeight);
+                
+                pop()
+                item.angle += 0.9;
+            }else if(item.fruit.sliced === true){
+                item.fruit.renderSplash();
+                item.fruit.renderSlice();
+                item.fruit.renderParticles();
+                push()
+                translate(item.x,item.y);
+                rotate(item.angle);
+                imageMode(CENTER);
+                image(item.game,0,0,item.circleWidth,item.circleHeight);
+                pop();
+                push();
+                translate(item.fruit.randomX, item.fruit.startY);
+                rotate(item.fruit.angle);
+                imageMode(CENTER);
+                image(item.fruit.topImg, 0,0, 130,110);
+                pop()
+                push();
+                translate(item.fruit.slicedX, item.fruit.startY);
+                rotate(item.fruit.angle);
+                imageMode(CENTER);
+                image(item.fruit.bottomImg, 0,0, 130,110);
+                pop()
+                item.angle += 0.9;
+                if(item.fruit.startY > item.fruit.endYPos){
+                    item.fruit.startY = item.fruit.startY + item.fruit.speed;
+                    item.fruit.speed = item.fruit.speed + 0.2;
+                }
+            }
+        })
+    }
 }
