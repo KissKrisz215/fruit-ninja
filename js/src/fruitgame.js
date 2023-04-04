@@ -163,4 +163,46 @@ export class game {
             this.gameOver = true;
         }
         }
+        renderFruits(){
+            this.addFruits();
+           if(this.gameMode === 'Zen'){
+            //Declares fruit's for 'Zen' Game Mode
+            this.zenFruits = [this.freezebanana, this.banana, this.peach, this.melon, this.strawberry, this.bomb, this.starfruit, this.dragonFruit, this.coconut,this.pineapple];
+            this.fruits = this.zenFruits;
+           }else if(this.gameMode === 'Classic'){
+            //Declares fruit's for 'Classic' Game Mode
+            this.classicFruits = [this.banana, this.apple, this.peach, this.melon, this.strawberry, this.bomb, this.dragonFruit, this.starfruit, this.pineapple];
+            this.fruits = this.classicFruits;
+           }
+           let randomSpin = this.spin[Math.floor(Math.random() * this.spin.length)];
+           let randomRotation = this.rotation[Math.floor(Math.random() * this.rotation.length)];
+             let randomY = Math.floor(Math.random() * (300 - 120) + 200);
+             let randomX = Math.floor(Math.random() * (750 - 100) + 100);
+             let randomGenNumber = Math.floor(Math.random() * (4, 9)); 
+             let randomFruit = Math.floor(Math.random() * this.fruits.length);
+              if(this.fruits[randomFruit].name === 'freezebanana'){
+               let result = this.fruitArray.find(item => item.name === 'freezebanana')
+               if(result === undefined & this.freezeSpawnTime % randomGenNumber === 0){
+                
+               }else{
+                 randomFruit = Math.floor(Math.random() * (1, this.fruits.length));
+               }
+              }
+              this.freezeSpawnTime++;
+           
+           
+              
+           // Pushes random fruits to the fruitArray
+             if(this.gameType === 'game'){
+               if(this.fruitArray.length < 15){
+                //Generates random fruit with random properties
+                 let fruit = this.fruits[randomFruit];
+                 fruit.randomX = randomX;
+                 fruit.spin = randomSpin;
+                 fruit.endYPos = randomY;
+                 fruit.rotation = randomRotation;
+                 this.fruitArray.push(fruit);
+               }
+             }
+        }
 }
