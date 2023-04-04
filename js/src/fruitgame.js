@@ -84,4 +84,18 @@ export class game {
             }
         })
     }
+    checkDuplicates(item,array){
+        this.menuFruitsArray.forEach((item,index) => {
+           if(item.fruit){
+            for(let i = index + 1; i < array.length; i++){
+                if(array[i].fruit){
+                    if(array[i].fruit.name === item.fruit.name){
+                       delete array[i].fruit
+                    }
+                }
+            }
+            
+           }
+        })
+    }
 }
