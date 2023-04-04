@@ -40,4 +40,10 @@ export class fruit {
        this.timing = timing;
        this.sound = 0;
     }
+    renderParticles(){
+        loadParticles(this);
+    }
+    renderSplash(){
+        loadSplash(this);
+    }
 }
