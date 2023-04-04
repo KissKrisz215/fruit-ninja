@@ -135,4 +135,9 @@ export class game {
             }
         })
     }
+    generateRandomFruit(item,array){
+        let randomNumber = Math.round(Math.random() * this.menuFruits.length - 1);
+        let fruits = this.menuFruits[randomNumber]
+        item.fruit = fruits;
+    }
 }
