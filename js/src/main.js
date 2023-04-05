@@ -422,6 +422,11 @@ loadParticles(item)
       //Display Score
       fruitNinja.displayScore();
     }else{
+       //Display Score
+       fruitNinja.displayScore();
+
+       //Display fruit's that hasn't been sliced
+       fruitNinja.showMissed();
     }
 }
 }
