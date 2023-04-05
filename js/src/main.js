@@ -350,14 +350,14 @@ function draw(){
       else if(item.name !== 'freezebanana'){
         item.renderSplash();
       }
-//Display the fruit's splashed 'Top' image
+//Display the fruit's Sliced 'Top' image
 push();
 translate(item.slicedTopX, item.slicedY);
 rotate(item.angle);
 imageMode(CENTER);
 image(item.topImg, 0,0, 130,110);
 pop()
-//Display the fruit's splashed 'Bottom' image
+//Display the fruit's Sliced 'Bottom' image
 push();
 translate(item.slicedBottomX, item.slicedY);
 rotate(item.angle);
@@ -373,6 +373,22 @@ item.slicedBottomX += item.slicedMaxSlide;
 if(item.particles !== undefined){
 loadParticles(item)
 }
+ //Generates Particles for the bomb
+    }else if(isBomb === true){
+      if(item.particles !== undefined){
+      item.renderParticles();
+      if(item.sound < 1 & playSound === true){
+        item.sound++;
+        bombSound.play();
+      }
+      setTimeout(() => {
+        bombSound.stop();
+      },4000)
+        setTimeout(() => {
+          delete item.particle;
+          fruitNinja.playerHealth = 0;
+         },3500)  
+    }
     }
   }
 }
