@@ -277,5 +277,27 @@ function draw(){
       image(musicMuted,670,260,80,70)
     }
     }
+//Check if the game has already been started
+}else if(fruitNinja.gameType === 'game'){
+  spawnTime
+  function splashedItem(item,isBomb){
+    //Check's if the sliced item is not a bomb
+    if(isBomb === false){
+      if(item.name === 'starfruit'){
+        //If the item is "starfruit" renders critical points
+        tint(255, item.splashOpacity);
+        item.splashOpacity -= 3.5;
+       image(critical10, item.splashedX, item.splashedY - 50, 200, 200);
+       tint(255, 255); 
+       if(item.sound < 1 & playSound === true){
+        item.sound++;
+        criticalSound.play()
+      }
+      setTimeout(() => {
+        criticalSound.stop();
+      },1500)
+      }
+    }
+  }
 }
 }
