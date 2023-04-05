@@ -538,5 +538,23 @@ loadParticles(item)
     renderBlade();
   }
 
+}else if(fruitNinja.gameType === "gameOver"){
+    fruitNinja.renderGameOver();
+    if (mouseIsPressed === true) {
+
+    //Checks if user swiped "retry" button
+    if(mouseX > 235 & mouseX < 305 & mouseY > 655 & mouseY < 725){
+
+      fruitNinja.playerHealth = 4;
+      fruitNinja.gameOver = false;
+      fruitNinja.gameScore = 0;
+      fruitNinja.fruitArray.splice(0, fruitNinja.fruitArray.length);
+      fruitNinja.missedFruits.splice(0, fruitNinja.missedFruits.length);
+      fruitNinja.gameType = 'game';
+      fruitNinja.gameOverCounter = 0;
+      goShow = true;
+      //Checks if user swiped "quit" button
+    }
+  }
 }
 }
