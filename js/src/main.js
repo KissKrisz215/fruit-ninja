@@ -391,5 +391,12 @@ loadParticles(item)
     }
     }
   }
+  let setFruitRendering;
+  function fruitsRendering(){
+    if(fruitNinja.gameMode === 'Zen' || fruitNinja.gameMode === 'Classic'){
+      //Render random fruit's when the game is started
+      fruitNinja.renderFruits();
+    }
+   }
 }
 }
