@@ -347,6 +347,32 @@ function draw(){
        spawnTime = 180;
        })
       }
+      else if(item.name !== 'freezebanana'){
+        item.renderSplash();
+      }
+//Display the fruit's splashed 'Top' image
+push();
+translate(item.slicedTopX, item.slicedY);
+rotate(item.angle);
+imageMode(CENTER);
+image(item.topImg, 0,0, 130,110);
+pop()
+//Display the fruit's splashed 'Bottom' image
+push();
+translate(item.slicedBottomX, item.slicedY);
+rotate(item.angle);
+imageMode(CENTER);
+image(item.bottomImg, 0,0, 130,110);
+pop()
+//Increment's the Y coordinate
+item.slicedY += item.speed;
+item.speed = item.speed + gravity;
+//Increment X coordinate for the Splashed Top/Bottom
+item.slicedTopX -= item.slicedMinSlide;
+item.slicedBottomX += item.slicedMaxSlide;
+if(item.particles !== undefined){
+loadParticles(item)
+}
     }
   }
 }
