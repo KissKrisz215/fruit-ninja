@@ -271,6 +271,11 @@ function draw(){
         }
       }
     }
+    if(isMusicMuted === false){
+      image(musicBtn,660,250,100,80)
+    }else{
+      image(musicMuted,670,260,80,70)
+    }
     }
 }
 }
