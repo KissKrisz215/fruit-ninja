@@ -183,6 +183,7 @@ function preload(){
   gameOverImg = loadImage('./assets/img/icons/gameover.png');
   miss = loadImage('./assets/img/icons/score/miss.png')
   go = loadImage('./assets/img/icons/go.png')
+  fruitNinja = new game();
 }
 
 function setup() {
