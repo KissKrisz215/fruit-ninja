@@ -427,6 +427,116 @@ loadParticles(item)
 
        //Display fruit's that hasn't been sliced
        fruitNinja.showMissed();
+       fruitNinja.fruitArray.forEach((item,index) => {
+        
+         //Check if the user has swiped the fruit
+         if (mouseIsPressed === true) {
+          if(item.startY -95 < mouseY & item.startY + 95 > mouseY & item.randomX - 95 < mouseX & item.randomX +95 > mouseX & item.sliced === false){
+            //If true display sound
+            if(playSound === true){
+              sliceSound.play();
+              setTimeout(() => {
+                sliceSound.stop();
+              },1500)
+            }
+           
+            item.sliced = true;
+            //If the item is a "starfruit" add 10 point's
+            if(item.name === 'starfruit'){
+              fruitNinja.gameScore += 10;
+            }
+            else if(item.name === 'dragonfruit'){
+              fruitNinja.gameScore += 5;
+            }else{
+              //Else add 1 point
+              fruitNinja.gameScore += 1;
+            }
+            //Sets fruit's splash properties
+            item.splashedX = item.randomX;
+            item.splashedY = item.startY ;
+            item.slicedTopX += item.splashedX + 15;
+            item.slicedBottomX += item.splashedX -20;
+            item.slicedY += item.splashedY;
+            //Checks for BestScore
+            if(fruitNinja.gameScore > fruitNinja.bestScore){
+              fruitNinja.bestScore = fruitNinja.gameScore;
+              localStorage.setItem("bestScore", fruitNinja.bestScore);
+            }
+          }
+          }
+           //Check's if fruit has reached it's Y coordinate
+           if(item.startY > item.endYPos  & item.reachedPoint === false){
+             if(item.sliced === false){
+              item.rotate();
+             }
+             //Check if fruit is a Bomb
+             else if(item.sliced === true){
+              if(item.name !== 'bomb'){
+                splashedItem(item,false);
+              }else if(item.name === 'bomb'){
+                splashedItem(item,true);
+              }
+              //Removes fruit from fruitArray
+              if(item.startY > 850){
+                fruitNinja.fruitArray.splice(index,1)
+              }
+             }
+             //Renders slice for fruit
+            item.renderSlice();
+            item.startY = item.startY + item.speed;
+            item.speed = item.speed + gravity;
+  
+           }else{
+            item.reachedPoint = true;
+            if(item.sliced === false & item.startY < 800){
+              item.rotate();
+  
+             } else if(item.startY.toFixed(0) > 800 & item.sliced === false){
+              //Check's if fruit has got back without the user swiping it
+              if(item.name !== 'bomb'){
+               //Decrement's player health
+                --fruitNinja.playerHealth;
+                //Displays missed Icon
+                fruitNinja.missedFruits.push([item.randomX,255]);
+              }
+              //Removes the fruit from FruitArray
+              fruitNinja.fruitArray.splice(index,1);
+           }
+           //Checks if the item is sliced
+             else if(item.sliced === true){
+              if(item.name !== 'bomb'){
+                splashedItem(item,false);
+              }else if(item.name === 'bomb'){
+                splashedItem(item,true);
+              }
+              //If the freezebanana has got back resets the timer
+              if(item.startY > 850){
+                if(item.name === 'freezebanana'){
+                  clearInterval(timerMin);
+                  timer = 6;
+                }
+                fruitNinja.fruitArray.splice(index,1)
+              }
+             }
+            item.renderSlice();
+            item.startY = item.startY + item.speed;
+            item.speed = item.speed + gravity;
+  
+           }
+        })
     }
+    if(goShow === true){
+      //Display go icon
+      image(go, 330,250,350,250);
+    }else{
+    }
+    setTimeout(() => {
+      goShow = false;
+    }, 700)
+   //Display Mouse Blade
+   if (mouseIsPressed === true) {
+    renderBlade();
+  }
+
 }
 }
