@@ -553,8 +553,16 @@ loadParticles(item)
       fruitNinja.gameType = 'game';
       fruitNinja.gameOverCounter = 0;
       goShow = true;
-      //Checks if user swiped "quit" button
-    }
+    //Checks if user swiped "quit" button
+  }else if(mouseX > 670 & mouseX < 830 & mouseY > 610 & mouseY < 770){
+    fruitNinja.playerHealth = 4;
+    fruitNinja.gameOver = false;
+    fruitNinja.gameScore = 0;
+    fruitNinja.fruitArray.splice(0, fruitNinja.fruitArray.length);
+    fruitNinja.missedFruits.splice(0, fruitNinja.missedFruits.length);
+    fruitNinja.gameType = 'gamestart';
+    fruitNinja.gameOverCounter = 0;
+  }
   }
 }
 }
