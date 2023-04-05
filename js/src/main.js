@@ -240,5 +240,16 @@ function draw(){
       }, 1000)
     }
   }
+    //Checks if user wants to close the menu window
+    if(isSettings === true){
+      let musicWidth = 110;
+      let musicX = 650;
+      //Added Event Listener for 'ESC'
+      window.addEventListener('keydown', (event) => {
+        if(event.keyCode === 27){
+          isSettings = false;
+        }
+      })
+    }
 }
 }
