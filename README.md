@@ -42,7 +42,7 @@
 
 ### Modes
 
-The game consist of two modes Classic and Zen
+The game consist of two modes **Classic** and **Zen**
 
 ![App Screenshot](/img/screenshots/gif3.gif)
 
