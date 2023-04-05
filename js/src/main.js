@@ -250,6 +250,12 @@ function draw(){
           isSettings = false;
         }
       })
+         //Added Event Listener for 'click'
+    window.addEventListener("click", () => {
+      if(mouseX < 150 || mouseX > 800 || mouseY < 150 || mouseY > 700){
+        isSettings = false;
+      }
+    });
     }
 }
 }
