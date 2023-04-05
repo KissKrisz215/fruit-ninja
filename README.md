@@ -4,7 +4,8 @@
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-  <img alt="Releases" src="https://img.shields.io/github/repo-size/KissKrisz215/fruitninja14" />
+  <img alt="Releases" src="https://img.shields.io/github/directory-file-count/KissKrisz215/fruit-ninja" />
+  
 
 **Fruit Ninja** - the most popular fruit-slicing game in the world! This game is built completely using the **p5js** JavaScript library.
 
