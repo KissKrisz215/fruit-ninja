@@ -309,6 +309,25 @@ function draw(){
       setTimeout(() => {
         criticalSound.stop();
       },1500)
+      }else if(item.name === 'freezebanana' & timer >= 0){
+        //If item is a "freezebanana" sets freezeMode
+        fruitNinja.fruitArray.forEach((item) => {
+          //Loops trough each item and lower the value's
+          item.angleMaxRotate = 0.6
+          item.minSlide = 0.3;
+          item.maxSlide = 0.5;
+          item.slicedMinSlide = 0.3;
+          item.slicedMaxSlide = 0.3;
+        })
+        tint(255, item.splashOpacity);
+        item.splashOpacity -= 20;
+      //  image(critical10, item.splashedX, item.splashedY - 50, 200, 200);
+       tint(400, 400);
+       fill(58, 184, 3);
+       textSize(100);
+       if(timer === 6){
+        countDown();
+       }
       }
     }
   }
