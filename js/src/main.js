@@ -321,13 +321,31 @@ function draw(){
         })
         tint(255, item.splashOpacity);
         item.splashOpacity -= 20;
-      //  image(critical10, item.splashedX, item.splashedY - 50, 200, 200);
        tint(400, 400);
        fill(58, 184, 3);
        textSize(100);
        if(timer === 6){
         countDown();
-       }
+       } //Display the Overlay and FreezeOut Icon
+       text(Math.round(timer), 450, 150);
+       tint(255, freezeOut);
+       image(frozenOverlay, 0,0, 1000, 800); 
+       freezeOut -= 0.2;
+       tint(255,255);
+       image(freezeIcon,350, 0, 250, 90)
+       //Check if the item has reached it's Y coordinate
+       fruitNinja.fruitArray.forEach((item) => {
+        if(item.startY > item.endYPos){
+          //If it is not reached changed the subtract from the speed
+          item.speed = -0.6
+        }else{
+          //If is reached it adds to the speed
+          item.speed = +0.6;
+        }
+        gravity = 0.1;
+        if(item.sliced === false & item.startY < 800){}
+       spawnTime = 180;
+       })
       }
     }
   }
