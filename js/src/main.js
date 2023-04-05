@@ -296,6 +296,19 @@ function draw(){
       setTimeout(() => {
         criticalSound.stop();
       },1500)
+      }else if(item.name === 'dragonfruit'){
+        //If the item is "starfruit" renders critical points
+        tint(255, item.splashOpacity);
+        item.splashOpacity -= 3.5;
+       image(critical5, item.splashedX, item.splashedY - 50, 200, 200);
+       tint(255, 255); 
+       if(item.sound < 1 & playSound === true){
+        item.sound++;
+        criticalSound.play()
+      }
+      setTimeout(() => {
+        criticalSound.stop();
+      },1500)
       }
     }
   }
