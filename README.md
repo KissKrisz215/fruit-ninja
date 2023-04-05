@@ -44,7 +44,7 @@
 
 The game consist of two modes **Classic** and **Zen**
 
-![App Screenshot](/img/screenshots/gif3.gif)
+![App Screenshot](/assets/img/screenshots/gif3.gif)
 
 ### Classic Mode
 
@@ -56,14 +56,14 @@ Bombs can also appear on your screen, which is fatal, if you slice a dangerous b
 
 The Classic mode also includes a rare Starfruit which gives +10 Points and a Dragon Fruit which gives +5 points.
 
-![App Screenshot](/img/screenshots/gif1.gif)
+![App Screenshot](/assets/img/screenshots/gif1.gif)
 
 ## Zen Mode
 
 It has the same game rules as for the Classic the only difference is the Freeze Banana,
 which if sliced slows down the fruits for 5 seconds.
 
-![App Screenshot](/img/screenshots/gif2.gif)
+![App Screenshot](/assets/img/screenshots/gif2.gif)
 
 ## Contributing
 
