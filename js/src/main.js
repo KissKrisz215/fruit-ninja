@@ -256,6 +256,21 @@ function draw(){
         isSettings = false;
       }
     });
+    image(settingImg,150,150,700,600);
+    //Checks if user clicked on the mute/unmute button
+     if (mouseIsPressed) {
+      if(mouseX > 610 & mouseX < 720 & mouseY > 210 & mouseY < 295){
+        if(isMusicMuted === true){
+          isMusicMuted = false;
+          playSound = true;
+          song.play();
+        }else if(isMusicMuted === false){
+          isMusicMuted = true;
+          playSound = false;
+          song.stop();
+        }
+      }
+    }
     }
 }
 }
