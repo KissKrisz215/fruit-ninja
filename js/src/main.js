@@ -398,5 +398,30 @@ loadParticles(item)
       fruitNinja.renderFruits();
     }
    }
+   ++fruitCounter;
+   //Calls fruitRendering based on set spawnTime
+   if(fruitCounter % spawnTime === 0 & fruitNinja.gameOver === false){
+    fruitsRendering()
+   }else if(fruitCounter % 350 === 0){
+    fruitsRendering()
+    setTimeout(() => {
+      fruitsRendering()
+    },500)
+   }
+     //Check if "GameOver" is true
+     if(fruitNinja.gameOver === true){
+      if(fruitNinja.gameOverCounter < 1){
+        setTimeout(() => {
+          fruitNinja.gameType = "gameOver";
+        }, 4500);
+        fruitNinja.gameOverCounter++;
+      }
+    }
+    background(bg);
+    if( fruitNinja.fruitArray.length === 0){
+      //Display Score
+      fruitNinja.displayScore();
+    }else{
+    }
 }
 }
